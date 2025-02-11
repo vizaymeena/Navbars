@@ -1,0 +1,338 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Header Section */
+.header{
+    height: 100px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+/* Hamburger */
+.hamburger{
+    display: none;    /* Initially hamburger is Hidden and Get shows when certain condition is meet */
+    height: 60px;
+    width: 60px;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+   
+    cursor: pointer;
+    transition: 0.7s ease-in-out;
+}
+
+.hamburger:hover,
+.hamburger:hover span{
+    transform: scale(0.9);
+}
+
+.bar{
+    height: 6px;
+    width: 35px;
+    background-color: white;
+    transition: 0.7s ease-in-out;
+}
+
+/* Hamburger Clicked Javascript Classlist */
+.hamburger.crossburger .bar1{
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.crossburger .bar2{
+    opacity: 0;
+}
+
+.hamburger.crossburger .bar3{
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+
+/* Webpage Title  */
+.webtitle {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+      font-size: 28px;
+      font-family: "Rancho",serif;
+      letter-spacing: 3px;
+  }
+
+
+.webtitle::before,
+.webtitle::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 0;
+      background-color: #ff5733;
+      transition: width 0.6s ease-in-out;
+  }
+
+.webtitle::before {
+      left: 0;
+  }
+
+.webtitle::after {
+      right: 0;
+  }
+
+/* Webpage Animations */
+@keyframes borderleft {
+      0%, 100% { 
+        width: 0;
+     }
+      50% { 
+        width: 50%;
+     }
+  }
+
+@keyframes borderright {
+      0%, 100% { 
+         width: 0; 
+     }
+
+      50% {
+         width: 50%; 
+     }
+  }
+
+.webtitle::before {
+      animation: borderleft 2s infinite alternate;
+  }
+
+.webtitle::after {
+      animation: borderright 2s infinite alternate;
+  }
+
+/* Webpage Title Ends  */
+
+
+
+/* Navlinks Container */
+.navlinks{
+    background-color: red;
+    padding: 5px;
+    height: 60%;
+    border-radius: 50px;
+    width: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+
+}
+/* Nav Anchor Links */
+.navlinks a{
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    width: fit-content;
+    background-color: rgba(243, 243, 243, 0.162);
+    padding: 5px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: none;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Gruppo", serif;
+    transition: 0.8s ease-in-out;
+}
+
+.navlinks a:hover{
+    color: rgb(0, 0, 0);
+    transform: translateY(-8px);
+}
+
+
+.navlinks a::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    height: 3.5px;
+    width: 100%;
+    background: linear-gradient(to right,rgb(235, 235, 235),black);
+    
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+    
+}
+
+.navlinks a:hover::after{
+    transform: translateX(0%);
+}
+
+/* Search And Usericon Container */
+.navlinks2{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.inpsearch{
+
+    text-align: center;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    width: 180px;
+}
+
+.inpsearch::placeholder{
+
+    color: black;
+    letter-spacing: 5px;
+    font-size: 15.4px;
+}
+/* Usericon */
+.userspanicon{
+
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    transition: 0.4s ease-in-out;
+}
+
+.userspanicon:hover{
+
+    transform: scale(0.9);
+    background-color: rgba(22, 152, 42, 0.432);
+
+}
+
+.usericon{
+   
+    font-size: 30px;
+    border-radius: 50%;
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+}
+.userspanicon:hover .usericon{
+
+    color:rgb(2, 232, 2);
+    transform: scale(0.9);
+
+}
+
+@media (min-width:360px) and (max-width:500px){
+
+    .header{
+        position: relative;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 12vh;
+        transition: height 2s ease-in-out; /* for smooth appeareance */
+        overflow: hidden;
+    }
+    /* Active Header */
+    .header.headeractive{
+        height: 100vh;
+    }
+    
+
+    /* Navlinks Display None */
+    .navlinks {
+
+        display: none;
+        flex-direction: column;
+    }
+
+    .navlinks a{
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 3s ease-in-out, visibility 2s ease-in-out;
+    }
+
+    /* Anchor tag classlist */
+    .navlinks.a_visible{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .navlinks2{
+        display: none;
+        height: 40px;
+        opacity: 0;
+        transition: opacity 2s ease-in-out, height 2s ease-in-out;
+        margin-bottom: 0.5em;
+    }
+
+    /* Navlinks Classlist */
+    .navlinks.activelinks{
+        display: flex;
+        opacity: 1;
+        width: 100%;
+        height: 500px;
+        
+    }
+    .navlinks2.activelinks2{
+        display: flex;
+        opacity: 1;
+        
+    }
+    
+    
+
+     
+    /* Hamburger Display BLock And None At Intitial */
+    .hamburger{
+        display: flex;
+    }
+
+    .hamburger{
+        position: absolute;
+        z-index: -1;
+        top: 10px;
+        left: 0;
+        height: 50px;
+        width: 50px;
+    }
+    .hamburger span{
+        height: 3px;
+        width: 18px;
+    }
+    .webtitle{
+        margin-top: 15px;
+        font-size: 20px;
+        padding-left: 10px;
+    }
+
+    .userspanicon{
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+    .usericon{
+        font-size: 25px;
+    }
+
+}
+
