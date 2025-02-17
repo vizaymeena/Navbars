@@ -1,33 +1,132 @@
 
 /* */
+/* GOogle Font */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Charm:wght@400;700&family=Combo&family=Crafty+Girls&family=Festive&family=Gruppo&family=Merienda:wght@300..900&family=Monsieur+La+Doulaise&family=Nothing+You+Could+Do&family=Playwrite+VN:wght@100..400&family=Radley:ital@0;1&family=Tangerine:wght@400;700&family=Tektur:wght@400..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .containerNav{
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40%;
-    height: 10vh;
+    gap: 20%;
+    height: 18vh;
     background-color: black;
     color: white;
     width: 100%;
 }
 
 .logoDiv {
+    font-family: "Gruppo", serif;
     height: 100%;
-    width: 300px;
+    width: 1000px;
     gap: 50px;
-    background-color: blue;
     display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 15px;
-   
-   
+}
+.logoDiv .logo{
+    border-radius: 50%;
+    transform: rotate(-20deg);
+    box-sizing: border-box;
+    border: 3px solid white;
+    height: 94px;
+    width: 100px;
+    margin-left: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 1s  ease-in-out;
+}
+.logoDiv .logo:hover{
+    transform: scale(0.9) rotate(0deg);
+    /* border: 3px solid green; */
+    border-style: dotted;
 }
 
+.logoDiv h2 span{
+   
+    color: red;
+}
+.logoDiv h2{
+    font-size: 30px;
+    color: yellow;
+}
 .containerNav nav{
+    font-family: "Plaster", serif;
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 5%;
-    font-size: 25px;
+    width: 800px;
+    height: 100%;
     font-weight: 800;
     letter-spacing: 2px;
     flex-wrap: wrap;
 } 
+.containerNav nav span{
+    cursor: pointer;
+    background-color: rgba(26, 37, 160, 0.674);
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 8px;
+    transition: transform 0.6s ease-in-out;
+}
+.containerNav nav span:hover{
+
+    transform: scale(0.9);
+
+}
+.home{
+    background-color: rgba(30, 30, 162, 0.676);
+    border-radius: 10px;
+    transition: 1s all ease;
+    position: relative;
+    z-index: 1;
+}
+.home::after{
+    border-radius: 10px;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: rgb(177, 26, 26);
+    bottom: 0;
+    left: 0;
+    /* Transition basis */
+    width: 0%;
+    height: 100%;
+
+    transition: width 0.6s ease-in-out;
+}
+.home:hover::after{
+    width: 90%;
+}
+.search{
+   
+
+    background-color: black;
+    border-radius: 10px;
+    height: 40px;
+    width: 400px;
+    letter-spacing: 2px;
+    font-size: 15px;
+    border: 2px solid white;
+    transition: width 0.6s ease-in-out;
+}
+.search::placeholder{
+    height: 40px;
+    width: 100%;
+    padding: 0px 5px;
+    letter-spacing: 2px;
+    color: white;
+}
+.search:focus{
+    width: 300px;
+    outline: none;
+    border: 2px dotted white;
+    box-shadow: 0px 0px 10px rgb(22, 82, 25) inset;
+}
